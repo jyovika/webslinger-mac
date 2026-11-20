@@ -1,0 +1,50 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>WebSlinger Preview</title>
+<style>
+  :root { --bg:#0C0D12; --gutter:#12131A; --gfg:#5A5D70; --fg:#E4DEE2; --line:#181A24; --sel:#4A1520;
+          --kw:#E3242B; --op:#FF4D5A; --num:#A9C1FF; --fn:#5B8CFF; --str:#FF8C94; --type:#FF6E6E; --com:#6B6880; --cur:#FF3340; }
+  body { margin:0; background:#050508; font:14px/1.6 Menlo, Monaco, monospace; color:var(--fg); padding:16px; }
+  .win { max-width:880px; margin:0 auto; border:1px solid #2A1A22; border-radius:10px; overflow:hidden; background:var(--bg); }
+  .tabs { background:var(--gutter); padding:8px 12px; font:12px -apple-system, sans-serif; color:#9A96A8; border-bottom:1px solid #2A1A22; }
+  .tabs b { color:var(--fg); border-bottom:2px solid var(--kw); padding-bottom:6px; }
+  pre { margin:0; display:grid; grid-template-columns:auto 1fr; overflow-x:auto; }
+  .g { background:var(--gutter); color:var(--gfg); text-align:right; padding:10px 10px 10px 14px; user-select:none; }
+  .c { padding:10px 14px; white-space:pre; }
+  .k{color:var(--kw);font-weight:bold} .o{color:var(--op)} .n{color:var(--num)} .f{color:var(--fn)} .s{color:var(--str)} .t{color:var(--type)} .m{color:var(--com);font-style:italic}
+  .hl { background:var(--line); display:inline-block; width:100%; } .sel { background:var(--sel); }
+  .cursor { border-left:2px solid var(--cur); margin-left:-1px; }
+  .console { border-top:1px solid #2A1A22; padding:10px 14px; white-space:pre; }
+  .p { color:var(--fn); } .err { color:#FF6B6B; }
+</style></head>
+<body>
+<div class="win">
+  <div class="tabs"><b>analysis.R</b> &nbsp;&nbsp; retail.Rmd</div>
+<pre><div class="g">1
+2
+3
+4
+5
+6
+7
+8
+9
+10
+11</div><div class="c"><span class="m"># Monthly sales summary</span>
+<span class="k">library</span>(<span class="f">dplyr</span>)
+
+sales <span class="o">&lt;-</span> <span class="f">read.csv</span>(<span class="s">"data/retail.csv"</span>, stringsAsFactors <span class="o">=</span> <span class="n">FALSE</span>)
+
+<span class="hl">summarise_month <span class="o">&lt;-</span> <span class="k">function</span>(df, <span class="sel">min_total</span> <span class="o">=</span> <span class="n">100</span>) {<span class="cursor"></span></span>
+  <span class="k">if</span> (<span class="f">nrow</span>(df) <span class="o">==</span> <span class="n">0</span>) <span class="k">return</span>(<span class="n">NULL</span>)
+  df <span class="o">%&gt;%</span>
+    <span class="f">group_by</span>(month) <span class="o">%&gt;%</span>
+    <span class="f">summarise</span>(total <span class="o">=</span> <span class="f">sum</span>(amount)) <span class="o">%&gt;%</span> <span class="f">filter</span>(total <span class="o">&gt;</span> min_total)
+}</div></pre>
+  <div class="console"><span class="p">&gt;</span> summarise_month(sales)
+<span class="m"># A tibble: 12 × 2</span>
+  month total
+1     1 <span class="n">4820.</span>
+<span class="p">&gt;</span> </div>
+</div>
+</body></html>

@@ -1,5 +1,5 @@
 .DS_Store
-Icon?
+Icon
 __pycache__/
 *.pyc
 icons/app_icons/

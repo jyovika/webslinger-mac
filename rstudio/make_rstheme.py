@@ -35,8 +35,10 @@ head = re.sub(r"#([0-9a-fA-F]{6})\b", lambda m: "#" + PALETTE.get(m.group(1).low
 head += "\n.ace_comment { font-style: italic; }\n"
 # faint web in the code editor's top-right corner; it stays put while the code scrolls.
 # Scoped to the source editor's scroller: a plain .ace_editor rule lands on the console instead.
-head += ('#rstudio_source_text_editor .ace_scroller { background-image: url("data:image/svg+xml;utf8,' + quote(web_svg()) + '") !important;'
-         " background-repeat: no-repeat !important; background-position: right top !important; background-size: 420px 420px !important; }\n")
+# Drawn as an overlay: RStudio paints layers over the scroller's own background in the source pane.
+head += ('#rstudio_source_text_editor .ace_scroller::after { content: ""; position: absolute; top: 0; right: 0;'
+         ' width: 420px; height: 420px; pointer-events: none; z-index: 10;'
+         ' background: url("data:image/svg+xml;utf8,' + quote(web_svg()) + '") no-repeat right top / 420px 420px; }\n')
 open("WebSlinger.rstheme", "w").write(head + sep + tail)
 
 leftover = [c for c in PALETTE if re.search("#" + c, head, re.I)]

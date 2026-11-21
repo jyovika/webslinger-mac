@@ -1,7 +1,7 @@
 # WebSlinger
 
 A dark red-and-black web theme for macOS: a custom cursor set, an RStudio editor theme with a
-spider web in the corner, and a script that tints app icons to match.
+spider web in the corner, a matching Positron theme, and a script that tints app icons to match.
 
 ![Cursor preview](cursor/preview.png)
 
@@ -11,6 +11,7 @@ spider web in the corner, and a script that tints app icons to match.
 |---|---|
 | `cursor/` | `WebSlinger.cape`: a web-pattern arrow, a hanging-spider link cursor, a text cursor and a spinning web loader, for [Mousecape](https://github.com/sdmj76/Mousecape-swiftUI) |
 | `rstudio/` | `WebSlinger.rstheme`: near-black editor, crimson keywords, blue functions, and a faint web behind your code. Open `preview.html` to see it |
+| `positron/` | `WebSlinger.vsix`: the same colours as a Positron (or VS Code) colour theme, covering the editor, panels and terminal |
 | `icons/` | `tint_icons.py`: recolours app icons into the dark red style of the macOS Tinted Dock |
 
 ## Install the cursors
@@ -29,6 +30,16 @@ rstudioapi::addTheme("path/to/rstudio/WebSlinger.rstheme", apply = TRUE)
 ```
 
 Or: Tools → Global Options → Appearance → Add…, pick the file, then choose WebSlinger.
+
+## Install the Positron theme
+
+```bash
+/Applications/Positron.app/Contents/Resources/app/bin/code --install-extension positron/WebSlinger.vsix
+```
+
+Or in Positron: Extensions → ⋯ → Install from VSIX…, pick the file. Then choose WebSlinger under
+Preferences → Theme → Color Theme. Positron themes can't draw background images, so there is no web
+in the corner. After editing the JSON in `positron/themes/`, run `positron/build_vsix.sh` to rebuild.
 
 ## Tint an app icon
 

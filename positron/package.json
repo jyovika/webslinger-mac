@@ -1,0 +1,16 @@
+{
+  "name": "webslinger-theme",
+  "displayName": "WebSlinger",
+  "description": "Dark red-and-black theme matching the WebSlinger RStudio theme",
+  "version": "1.0.0",
+  "publisher": "jyovika",
+  "license": "MIT",
+  "repository": { "type": "git", "url": "https://github.com/jyovika/webslinger-mac" },
+  "engines": { "vscode": "^1.80.0" },
+  "categories": ["Themes"],
+  "contributes": {
+    "themes": [
+      { "label": "WebSlinger", "uiTheme": "vs-dark", "path": "./themes/webslinger-color-theme.json" }
+    ]
+  }
+}

@@ -65,6 +65,9 @@ dismiss), and you'll need to reload after each Positron update.
 }
 ```
 
+The web shows in code editors (`.R`, `.py`, and `.qmd` in Source mode). It does not show in the Quarto
+Visual Editor, which is a separate embedded page the extension can't draw on.
+
 To remove it cleanly, click "Background" in the status bar and choose "Uninstall the extension." before
 removing it from Extensions; that puts Positron's files back.
 `positron/make_web_png.py` rebuilds `web.png` from the same geometry as the RStudio web.

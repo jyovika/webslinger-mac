@@ -38,8 +38,36 @@ Or: Tools → Global Options → Appearance → Add…, pick the file, then choo
 ```
 
 Or in Positron: Extensions → ⋯ → Install from VSIX…, pick the file. Then choose WebSlinger under
-Preferences → Theme → Color Theme. Positron themes can't draw background images, so there is no web
-in the corner. After editing the JSON in `positron/themes/`, run `positron/build_vsix.sh` to rebuild.
+Preferences → Theme → Color Theme. After editing the JSON in `positron/themes/`, run
+`positron/build_vsix.sh` to rebuild.
+
+### Optional: the corner web in Positron
+
+Colour themes can't draw images, so the web needs the open-source
+[background](https://github.com/shalldie/vscode-background) extension (MIT). It works by editing
+Positron's own files, so Positron will warn that its installation "appears to be corrupt" (safe to
+dismiss), and you'll need to reload after each Positron update.
+
+1. Install it: Extensions → search "background" by shalldie.
+2. Copy the image: `mkdir -p ~/.config/webslinger && cp positron/web.png ~/.config/webslinger/`
+3. Add this to Positron's `settings.json` (⌘⇧P → "Preferences: Open User Settings (JSON)"), then reload:
+
+```json
+"background.editor": {
+  "useFront": true,
+  "images": ["~/.config/webslinger/web.png"],
+  "style": {
+    "background-position": "right top",
+    "background-size": "420px 420px",
+    "background-repeat": "no-repeat",
+    "opacity": 1
+  }
+}
+```
+
+To remove it cleanly, click "Background" in the status bar and choose "Uninstall the extension." before
+removing it from Extensions; that puts Positron's files back.
+`positron/make_web_png.py` rebuilds `web.png` from the same geometry as the RStudio web.
 
 ## Tint an app icon
 

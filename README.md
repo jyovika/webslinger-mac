@@ -50,7 +50,11 @@ dismiss), and you'll need to reload after each Positron update.
 
 1. Install it: Extensions → search "background" by shalldie.
 2. Copy the image: `mkdir -p ~/.config/webslinger && cp positron/web.png ~/.config/webslinger/`
-3. Add this to Positron's `settings.json` (⌘⇧P → "Preferences: Open User Settings (JSON)"), then reload:
+3. Add the settings below to Positron's `settings.json` (⌘⇧P → "Preferences: Open User Settings
+   (JSON)") and click "Apply and Reload" when the extension asks.
+4. Run `python3 positron/fix_background_nonce.py`, then quit and reopen Positron. Positron's security
+   policy blocks the extension's script otherwise. Re-run it after changing `background.*` settings or
+   updating Positron.
 
 ```json
 "background.editor": {

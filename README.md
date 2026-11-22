@@ -5,12 +5,14 @@ spider web in the corner, a matching Positron theme, and a script that tints app
 
 ![Cursor preview](cursor/preview.png)
 
+Open `preview.html` for real screenshots of the editor themes.
+
 ## What's inside
 
 | Folder | What it is |
 |---|---|
 | `cursor/` | `WebSlinger.cape`: a web-pattern arrow, a hanging-spider link cursor, a text cursor and a spinning web loader, for [Mousecape](https://github.com/sdmj76/Mousecape-swiftUI) |
-| `rstudio/` | `WebSlinger.rstheme`: near-black editor, crimson keywords, blue functions, and a faint web behind your code. Open `preview.html` to see it |
+| `rstudio/` | `WebSlinger.rstheme`: near-black editor, crimson keywords, blue functions, and a faint web behind your code |
 | `positron/` | `WebSlinger.vsix`: the same colours as a Positron (or VS Code) colour theme, covering the editor, panels and terminal |
 | `icons/` | `tint_icons.py`: recolours app icons into the dark red style of the macOS Tinted Dock |
 

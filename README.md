@@ -22,6 +22,8 @@ Open `preview.html` for real screenshots of the editor themes.
 2. Double-click `cursor/WebSlinger.cape` to import it, select it and click Apply.
 3. Leave the system pointer colour at its default (System Settings → Accessibility → Display →
    Pointer → Reset Color). A custom pointer colour stops Mousecape working outside the Dock.
+4. Turn Mousecape on in System Settings → General → Login Items & Extensions → Allow in the
+   Background. Otherwise its helper doesn't start after a restart and the normal cursor comes back.
 
 ## Install the RStudio theme
 
